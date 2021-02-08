@@ -1,16 +1,39 @@
+//ÌâÒâ£ºÇóÁ½¸öÕûÊıµÄ×î´ó¹«Ô¼ÊıºÍ×îĞ¡¹«±¶Êı
 #include<stdio.h>
+//×î´ó¹«Ô¼Êı
+int GCD(int a,int b)
+{
+	int gcd;
+	gcd=a>b ? b:a;
+	while(gcd>1)
+	{
+		if((a%gcd==0)&&(b%gcd==0))
+			return gcd;
+	}
+	return gcd;
+}
+//×îĞ¡¹«±¶Êı
+int LCM(int a,int b)
+{
+	int lcm;
+	lcm=a>b ?a:b;
+	while(1)
+	{
+		if((lcm%a==0)&&(lcm%b==0))
+			break;
+		lcm++;
+	}
+	return lcm;
+}
 int main()
 {
-	int a,i;
-	printf("è¯·è¾“å…¥ä¸€ä¸ªæ•´æ•°:");
-	scanf("%d",&a);
-	for(i=0;a;i++)
-	{
-		
-		printf("%d ",a%10);
-		a=a/10;
-	}
-	printf("è¿™ä¸ªæ•°æ˜¯%dä½æ•°",i);
-
-return 0;
+	int a,b,result;
+	printf("ÇëÊäÈëÁ½¸öÕûÊı£º");
+	scanf("%d%d",&a,&b);
+	result=GCD(a,b);
+	printf("%dºÍ%dµÄ×î´ó¹«Ô¼ÊıÎª£º%d\n",a,b,result);
+	result=LCM(a,b);
+	printf("%dºÍ%dµÄ×îĞ¡¹«±¶ÊıÎª£º%d\n",a,b,result);
+	return 0;
 }
+
